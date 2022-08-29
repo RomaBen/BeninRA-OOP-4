@@ -31,6 +31,15 @@ class ManagerTest {
     Manager manager = new Manager();
     Manager managerSF = new Manager(true); // SF - Show Five
 
+    @Test void shouldSaveThePoster() {
+        manager.save(poster);
+
+        Posters[] actual = manager.findAll();
+        Posters[] expected = {poster};
+
+        assertArrayEquals(expected, actual);
+    }
+
     @Test
     public void shouldFindLastTenPostersSaved() {
         manager.save(poster);
@@ -69,7 +78,7 @@ class ManagerTest {
         managerSF.save(poster11);
 
         Posters[] actual = managerSF.findLast();
-        Posters[] expected = { poster11, poster10,
+        Posters[] expected = {poster11, poster10,
                 poster9, poster8, poster7};
         assertArrayEquals(expected, actual);
     }
