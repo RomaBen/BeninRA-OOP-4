@@ -5,14 +5,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Manager {
     private Posters[] posters = new Posters[0];
-    int numberFindLastPosters = 10;
-    boolean showFivePosters = false;
-    private Manager postersManager;
+    private int numberLastPosters = 10;
+    private  boolean showFivePosters = false;
 
     public Manager (boolean showFivePosters) {
-        if (showFivePosters) {
-            this.numberFindLastPosters = 5;
-        }
+        this.showFivePosters = showFivePosters;
     }
 
     public void save(Posters poster) {
@@ -28,7 +25,17 @@ public class Manager {
         return posters;
     }
 
-    public void findLast() {
-
+    public Posters[] findLast() {
+        Posters[] posters = findAll();
+        if (showFivePosters) {
+            numberLastPosters = 5;
+        }
+        Posters[] postersGot = new Posters[numberLastPosters];
+        for (int i = 0; i < postersGot.length; i++) {
+            int index = posters.length - i - 1;
+            postersGot[i] = posters[index];
+        }
+        return postersGot;
     }
+
 }

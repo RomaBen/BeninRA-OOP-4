@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 public class Posters {
     private int id;
-    private int filmId;
     private String filmName = "Placeholder";
     private String filmGenre = "Placeholder";
     private boolean filmAvailability = false;
+
+    public Posters(int id) {
+        this.id = id;
+    }
 }
