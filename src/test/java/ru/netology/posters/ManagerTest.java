@@ -172,7 +172,8 @@ class ManagerTest {
         assertArrayEquals(expected,actual);
     }
 
-    @Test public void shouldFindLastPostersIfLessThanFiveWithManagerSF() {
+    @Test
+    public void shouldFindLastPostersIfLessThanFiveWithManagerSF() {
         managerSF.save(poster10);
         managerSF.save(poster7);
         managerSF.save(poster);
@@ -181,5 +182,13 @@ class ManagerTest {
         Posters[] actual = managerSF.findLast();
 
         assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void shouldNotFindAnyLastPostersWithManager() {
+        Posters[] expected = {};
+        Posters[] actual = manager.findLast();
+
+        assertArrayEquals(expected, actual);
     }
 }
