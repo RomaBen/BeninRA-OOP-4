@@ -247,4 +247,12 @@ class ManagerTest {
         Posters actual = new Posters();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testIdArgConstructor() {
+        Posters expected = new Posters(27, "Placeholder",
+                "Placeholder", false);
+        Posters actual = new Posters(27);
+        assertEquals(expected, actual);
+    }
 }
