@@ -255,4 +255,5 @@ class ManagerTest {
         Posters actual = new Posters(27);
         assertEquals(expected, actual);
     }
+
 }
