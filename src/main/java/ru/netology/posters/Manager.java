@@ -8,15 +8,13 @@ import lombok.NoArgsConstructor;
 public class Manager {
     private Posters[] posters = new Posters[0];
     private  boolean showFivePosters = false;
-    private int resultLength;
+    private int resultLength = 10;
 
     public Manager (boolean showFivePosters) {
         this.showFivePosters = showFivePosters;
-        if (showFivePosters) {
-            this.resultLength = 5;      // "Лимит указывается в
-        } else {                        //  конструкторе менеджера"
-            this.resultLength = 10;     // (с) Филипп Воронов 1:18:40
-        }
+        if (showFivePosters) {          // "Лимит указывается в
+            this.resultLength = 5;      //  конструкторе менеджера"
+        }                               // (с) Филипп Воронов 1:18:40
     }
 
     public void save(Posters poster) {

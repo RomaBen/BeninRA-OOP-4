@@ -100,7 +100,7 @@ class ManagerTest {
         manager.save(poster10);
         manager.save(poster11);
 
-        Posters[] expected = { poster11, poster10,
+        Posters[] expected = {poster11, poster10,
                 poster9, poster8, poster7, poster6, poster5,
                 poster4, poster3, poster2};
         Posters[] actual = manager.findLast();
