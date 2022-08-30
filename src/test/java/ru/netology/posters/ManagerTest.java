@@ -239,4 +239,12 @@ class ManagerTest {
         assertTrue(dummy.isFilmAvailability());
 
     }
+
+    @Test
+    public void testNoArgsConstructor() {
+        Posters expected = new Posters(0, "Placeholder",
+                "Placeholder", false);
+        Posters actual = new Posters();
+        assertEquals(expected, actual);
+    }
 }
