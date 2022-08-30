@@ -31,6 +31,7 @@ class ManagerTest {
             "Thriller", true);
     Manager manager = new Manager();
     Manager managerSF = new Manager(5); // SF - Show Five
+    Posters dummy = new Posters();
 
     @Test
     public void shouldNotFindAnyPosterWithManager() {
@@ -212,5 +213,30 @@ class ManagerTest {
         Posters[] actual = manager.findAll();
 
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testPostersClassIdSetter() {
+        dummy.setId(96);
+        assertEquals(96,dummy.getId());
+    }
+
+    @Test
+    public void testPostersClassFilmNameSetter() {
+        dummy.setFilmName("On povernul tuda");
+        assertEquals("On povernul tuda", dummy.getFilmName());
+    }
+
+    @Test
+    public void testPostersClassFilmGenreSetter() {
+        dummy.setFilmGenre("Road movie");
+        assertEquals("Road movie", dummy.getFilmGenre());
+    }
+
+    @Test
+    public void testPostersClassFilmAvailabilitySetter() {
+        dummy.setFilmAvailability(true);
+        assertTrue(dummy.isFilmAvailability());
+
     }
 }
