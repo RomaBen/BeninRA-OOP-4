@@ -28,6 +28,9 @@ public class Manager {
 
     public Posters[] findLast() {
         Posters[] posters = findAll();
+        if (posters.length < resultLength) {
+            resultLength = posters.length;
+        }
         Posters[] result = new Posters[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = posters.length - i - 1;

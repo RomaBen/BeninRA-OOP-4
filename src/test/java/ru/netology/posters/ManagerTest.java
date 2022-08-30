@@ -33,7 +33,7 @@ class ManagerTest {
     Manager managerSF = new Manager(true); // SF - Show Five
 
     @Test
-    public void shouldNotFindAnyPoster() {
+    public void shouldNotFindAnyPosterWithManager() {
         Posters[] expected = {};
         Posters[] actual = manager.findAll();
 
@@ -41,7 +41,7 @@ class ManagerTest {
     }
 
     @Test
-    public void shouldSaveThePoster() {
+    public void shouldSaveThePosterWithManager() {
         manager.save(poster);
 
         Posters[] expected = {poster};
@@ -51,7 +51,7 @@ class ManagerTest {
     }
 
     @Test
-    public void shouldSaveSomePosters() {
+    public void shouldSaveSomePostersWithManager() {
         manager.save(poster1);
         manager.save(poster2);
         manager.save(poster3);
@@ -63,7 +63,7 @@ class ManagerTest {
     }
 
     @Test
-    public void shouldFindAllPostersSaved() {
+    public void shouldFindAllPostersSavedWithManager() {
         manager.save(poster);
         manager.save(poster1);
         manager.save(poster2);
@@ -86,7 +86,7 @@ class ManagerTest {
     }
 
     @Test
-    public void shouldFindLastTenPostersSaved() {
+    public void shouldFindLastTenPostersSavedWithManager() {
         manager.save(poster);
         manager.save(poster1);
         manager.save(poster2);
@@ -109,7 +109,7 @@ class ManagerTest {
     }
 
     @Test
-    public void shouldFindLastFivePostersSaved() {
+    public void shouldFindLastFivePostersSavedWithManagerSF() {
         managerSF.save(poster);
         managerSF.save(poster1);
         managerSF.save(poster2);
@@ -130,4 +130,56 @@ class ManagerTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldNotFindAnyPostersWithManagerSF() {
+        Posters[] expected = {};
+        Posters[] actual = managerSF.findAll();
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSaveThePosterWithManagerSF() {
+        managerSF.save(poster9);
+
+        Posters[] expected = {poster9};
+        Posters[] actual = managerSF.findAll();
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSaveSomePostersWithManagerSF() {
+        managerSF.save(poster10);
+        managerSF.save(poster11);
+        managerSF.save(poster9);
+
+        Posters[] expected = {poster10, poster11, poster9};
+        Posters[] actual = managerSF.findAll();
+
+        assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void shouldFindLastPostersIfLessThanTenWithManager() {
+        manager.save(poster3);
+        manager.save(poster5);
+        manager.save(poster9);
+
+        Posters[] expected = {poster9, poster5, poster3};
+        Posters[] actual = manager.findLast();
+
+        assertArrayEquals(expected,actual);
+    }
+
+    @Test public void shouldFindLastPostersIfLessThanFiveWithManagerSF() {
+        managerSF.save(poster10);
+        managerSF.save(poster7);
+        managerSF.save(poster);
+
+        Posters[] expected = {poster, poster7, poster10};
+        Posters[] actual = managerSF.findLast();
+
+        assertArrayEquals(expected,actual);
+    }
 }
