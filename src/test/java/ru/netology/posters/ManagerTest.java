@@ -191,4 +191,14 @@ class ManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldBeNothingIfFindLastWithZeroInTheConstructor() {
+        Manager zero = new Manager(0);
+
+        Posters[] expected = {};
+        Posters[] actual = zero.findLast();
+
+        assertArrayEquals(expected,actual);
+    }
 }
