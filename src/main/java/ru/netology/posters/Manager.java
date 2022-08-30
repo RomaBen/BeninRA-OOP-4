@@ -1,10 +1,8 @@
 package ru.netology.posters;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@Data
 public class Manager {
     private Posters[] posters = new Posters[0];
     private  boolean showFivePosters = false;

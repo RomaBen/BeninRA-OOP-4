@@ -36,7 +36,7 @@ class ManagerTest {
         manager.save(poster);
 
         Posters[] expected = {poster};
-        Posters[] actual = manager.getPosters();
+        Posters[] actual = manager.findAll();
 
         assertArrayEquals(expected, actual);
     }
@@ -48,7 +48,7 @@ class ManagerTest {
         manager.save(poster3);
 
         Posters[] expected = {poster1, poster2, poster3};
-        Posters[] actual = manager.getPosters();
+        Posters[] actual = manager.findAll();
 
         assertArrayEquals(expected, actual);
     }
