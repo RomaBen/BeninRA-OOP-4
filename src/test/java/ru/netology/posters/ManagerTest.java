@@ -2,8 +2,8 @@ package ru.netology.posters;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class ManagerTest {
     Posters poster = new Posters(0, "Obochina",
@@ -128,26 +128,6 @@ class ManagerTest {
         Posters[] actual = managerSF.findLast();
 
         assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void testResultLengthSetter() {
-        manager.setResultLength(15);
-
-        int expected = 15;
-        int actual = manager.getResultLength();
-
-        assertEquals(expected,actual);
-    }
-
-    @Test
-    public void testShowFivePostersSetter() {
-        manager.setShowFivePosters(true);
-
-        boolean expected = true;
-        boolean actual = manager.isShowFivePosters();
-
-        assertEquals(expected,actual);
     }
 
 }
