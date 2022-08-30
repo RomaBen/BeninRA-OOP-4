@@ -30,7 +30,7 @@ class ManagerTest {
     Posters poster11 = new Posters(11, "Hohotach2-Polniy Hohotach",
             "Thriller", true);
     Manager manager = new Manager();
-    Manager managerSF = new Manager(true); // SF - Show Five
+    Manager managerSF = new Manager(5); // SF - Show Five
 
     @Test
     public void shouldNotFindAnyPosterWithManager() {

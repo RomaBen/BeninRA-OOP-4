@@ -7,11 +7,10 @@ public class Manager {
     private Posters[] posters = new Posters[0];
     private int resultLength = 10;
 
-    public Manager (boolean showFivePosters) {
-        if (showFivePosters) {          // "Лимит указывается в
-            this.resultLength = 5;      //  конструкторе менеджера"
-        }                               // (с) Филипп Воронов 1:18:40
-    }
+    public Manager (int resultLength) {         // "Лимит указывается в
+        this.resultLength = resultLength;       //  конструкторе менеджера"
+    }                                           // (с) Филипп Воронов 1:18:40
+
 
     public void save(Posters poster) {
         int length = posters.length + 1;
