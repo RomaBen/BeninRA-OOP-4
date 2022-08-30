@@ -199,6 +199,18 @@ class ManagerTest {
         Posters[] expected = {};
         Posters[] actual = zero.findLast();
 
-        assertArrayEquals(expected,actual);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testAllOnePoster() {
+        manager.save(poster);
+        manager.save(poster);
+        manager.save(poster);
+
+        Posters[] expected = {poster, poster, poster};
+        Posters[] actual = manager.findAll();
+
+        assertArrayEquals(expected, actual);
     }
 }
