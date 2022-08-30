@@ -3,6 +3,7 @@ package ru.netology.posters;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ManagerTest {
     Posters poster = new Posters(0, "Obochina",
@@ -30,6 +31,14 @@ class ManagerTest {
             "Thriller", true);
     Manager manager = new Manager();
     Manager managerSF = new Manager(true); // SF - Show Five
+
+    @Test
+    public void shouldNotFindAnyPoster() {
+        Posters[] expected = {};
+        Posters[] actual = manager.findAll();
+
+        assertArrayEquals(expected,actual);
+    }
 
     @Test
     public void shouldSaveThePoster() {
@@ -119,6 +128,26 @@ class ManagerTest {
         Posters[] actual = managerSF.findLast();
 
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testResultLengthSetter() {
+        manager.setResultLength(15);
+
+        int expected = 15;
+        int actual = manager.getResultLength();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testShowFivePostersSetter() {
+        manager.setShowFivePosters(true);
+
+        boolean expected = true;
+        boolean actual = manager.isShowFivePosters();
+
+        assertEquals(expected,actual);
     }
 
 }

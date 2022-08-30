@@ -1,14 +1,22 @@
 package ru.netology.posters;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@Data
 public class Manager {
     private Posters[] posters = new Posters[0];
     private  boolean showFivePosters = false;
+    private int resultLength;
 
     public Manager (boolean showFivePosters) {
         this.showFivePosters = showFivePosters;
+        if (showFivePosters) {
+            this.resultLength = 5;      // "Лимит указывается в
+        } else {                        //  конструкторе менеджера"
+            this.resultLength = 10;     // (с) Филипп Воронов 1:18:40
+        }
     }
 
     public void save(Posters poster) {
@@ -26,12 +34,6 @@ public class Manager {
 
     public Posters[] findLast() {
         Posters[] posters = findAll();
-        int resultLength;
-        if (showFivePosters) {
-            resultLength = 5;
-        } else {
-            resultLength = 10;
-        }
         Posters[] result = new Posters[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = posters.length - i - 1;
