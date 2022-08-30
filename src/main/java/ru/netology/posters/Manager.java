@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class Manager {
     private Posters[] posters = new Posters[0];
-    private int numberLastPosters = 10;
     private  boolean showFivePosters = false;
 
     public Manager (boolean showFivePosters) {
@@ -29,15 +28,18 @@ public class Manager {
 
     public Posters[] findLast() {
         Posters[] posters = findAll();
+        int resultLength;
         if (showFivePosters) {
-            numberLastPosters = 5;
+            resultLength = 5;
+        } else {
+            resultLength = 10;
         }
-        Posters[] postersGot = new Posters[numberLastPosters];
-        for (int i = 0; i < postersGot.length; i++) {
+        Posters[] result = new Posters[resultLength];
+        for (int i = 0; i < result.length; i++) {
             int index = posters.length - i - 1;
-            postersGot[i] = posters[index];
+            result[i] = posters[index];
         }
-        return postersGot;
+        return result;
     }
 
 }
